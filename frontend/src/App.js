@@ -5,6 +5,8 @@ import SignupFormPage from "./components/SignupFormPage";
 // import LoginFormPage from "./components/LoginFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import CreateQueryForm from "./components/CreateQueryForm/CreateQueryForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -15,6 +17,7 @@ function App() {
 
   return (
     <>
+    <MuiThemeProvider>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
@@ -24,8 +27,12 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route path="/createNotification">
+            <CreateQueryForm />
+          </Route>
         </Switch>
       )}
+    </MuiThemeProvider>
     </>
   );
 }
